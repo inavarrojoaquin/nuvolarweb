@@ -1,0 +1,38 @@
+<div class="text-center">
+  <!-- Buttons themes -->
+  <div class="row themes text-center">
+    <div class="col-xs-12">
+      <button class="btn btn-default theme-default" type="button" data-theme="default" (click)="changeTheme('default')">Default</button>
+      <button class="btn btn-default theme-dark" type="button" data-theme="dark" (click)="changeTheme('dark')">Dark</button>
+      <button class="btn btn-default theme-antique" type="button" data-theme="antique" (click)="changeTheme('antique')">Antique</button>
+      <button class="btn btn-default theme-darksalmon" type="button" data-theme="darksalmon" (click)="changeTheme('darksalmon')">Darksalmon</button>
+    </div>
+  </div>
+
+  <!-- Search input bar -->
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 id="title" class="text-center nuvolar-font">Nuvolar Search Engine</h1>
+      <div class="input-group mb-3">
+        <input class="form-control" #searchUserBox (keyup)="getUsers(searchUserBox.value)" placeholder="Type in a github username"/>
+        <div class="input-group-append">
+          <span class="input-group-text"><i class="fa fa-search"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <BR>
+
+  <!-- Results list -->
+  <div class="row" ng-show="users.length > 0 && username != '' ">
+    <div class="col-xs-12">
+      <div class="list-group">
+        <a class="list-group-item list-group-item-action" *ngFor="let user of users" routerLink="/detail/{{user.login}}">
+          <img src="{{user.avatar_url}}" width="50" height="50" class="img-circle">
+          <span class="span-user-name">{{user.login}}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

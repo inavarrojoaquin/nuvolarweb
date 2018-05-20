@@ -1,0 +1,124 @@
+<div class="row user-details" *ngIf="user">
+  <div class="col-xs-12 col-md-4">
+    <div class="card">
+      <img class="card-img-top img-thumbnail" src="{{user.avatar_url}}" alt="User image">
+      <div class="card-body">
+        <h4 class="card-title" id="name">{{user.name}}</h4>
+        <p class="card-text" id="username">{{user.login}}</p>
+      </div>
+    </div>
+
+    <hr>
+
+    <p *ngIf="user.location" class="card-text">
+      <i class="fa fa-map-marker"></i>
+      <small> {{user.location}}</small>
+    </p>
+    <p *ngIf="user.email" class="card-text" id="email">
+      <i class="fa fa-envelope"></i>
+      <small> {{user.email}}</small>
+    </p>
+
+    <button type="button" class="btn btn-info back-button" (click)="goBack()">Back</button>
+  </div>
+  <div class="col-xs-12 col-md-8">
+
+    <ul class="nav nav-tabs nav-fill flex-column flex-sm-row text-center" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="repos-tab" data-toggle="tab" href="#repos" role="tab" aria-controls="repos" aria-selected="true">
+          Repositories
+          <span class="badge badge-secondary">{{user.public_repos}}</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="followers-tab" data-toggle="tab" href="#followers" role="tab" aria-controls="followers" aria-selected="false">
+          Followers
+          <span class="badge badge-secondary">{{user.followers}}</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="followings-tab" data-toggle="tab" href="#followings" role="tab" aria-controls="followings" aria-selected="false">
+          Followings
+          <span class="badge badge-secondary">{{user.following}}</span>
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="repos" role="tabpanel" aria-labelledby="repos-tab">
+        <ul class="list-group" *ngIf="user.public_repos > 0">
+          <li class="list-group-item" *ngFor="let repo of repos">
+            <a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
+            <span> - {{repo.language}}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-pane fade" id="followers" role="tabpanel" aria-labelledby="followers-tab">
+        <ul class="list-group" *ngIf="user.followers > 0">
+          <li class="list-group-item" *ngFor="let follower of followers">
+            <img class="img-thumbnail" src="{{follower.avatar_url}}" width="50" height="50">
+            <a routerLink="/detail/{{follower.html_url}}" href="{{follower.html_url}}" target="_blank">{{follower.login}}</a>
+            <label>{{follower.location}}</label>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-pane fade" id="followings" role="tabpanel" aria-labelledby="followings-tab">
+        <ul class="list-group" *ngIf="user.following > 0">
+          <li class="list-group-item" *ngFor="let following of followings">
+            <img class="img-thumbnail" src="{{following.avatar_url}}" width="50" height="50">
+            <a href="{{following.html_url}}" target="_blank">{{following.login}}</a>
+            <label>{{following.location}}</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- <ul class="nav nav-tabs flex-column flex-sm-row nav-justified" role="tablist">
+      <li class="nav-item" [ngClass]="{'active': selectedTab == 1}">
+        <a class=" text-sm-center nav-item nav-link" (click)="selectedTab = 1" [ngClass]="{'disabled': user.public_repos == 0}">
+          Repositories
+          <span class="badge badge-secondary">{{user.public_repos}}</span>
+        </a>
+      </li>
+      <li class="nav-item" [ngClass]="{'active': selectedTab == 2}">
+        <a class=" text-sm-center nav-item nav-link" (click)="selectedTab = 2" [ngClass]="{'disabled': user.followers == 0}">
+          Followers
+          <span class="badge badge-secondary">{{user.followers}}</span>
+        </a>
+      </li>
+      <li class="nav-item" [ngClass]="{'active': selectedTab == 3}">
+        <a class=" text-sm-center nav-item nav-link" (click)="selectedTab = 3" [ngClass]="{'disabled': user.following == 0}">
+          Followings
+          <span class="badge badge-secondary">{{user.following}}</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="tab-pane" [hidden]="selectedTab != 1">
+      <ul class="list-group" *ngIf="user.public_repos > 0">
+        <li class="list-group-item" *ngFor="let repo of repos">
+          <a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
+          <span>{{repo.language}}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="tab-pane" [hidden]="selectedTab != 2">
+      <ul class="list-group" *ngIf="user.followers > 0">
+        <li class="list-group-item" *ngFor="let follower of followers">
+          <img class="img-thumbnail" src="{{follower.avatar_url}}" width="50" height="50">
+          <a routerLink="/detail/{{follower.html_url}}" href="{{follower.html_url}}" target="_blank">{{follower.login}}</a>
+          <label>{{follower.location}}</label>
+        </li>
+      </ul>
+    </div>
+    <div class="tab-pane" [hidden]="selectedTab != 3">
+      <ul class="list-group" *ngIf="user.following > 0">
+        <li class="list-group-item" *ngFor="let following of followings">
+          <img class="img-thumbnail" src="{{following.avatar_url}}" width="50" height="50">
+          <a href="{{following.html_url}}" target="_blank">{{following.login}}</a>
+          <label>{{following.location}}</label>
+        </li>
+      </ul>
+    </div> -->
+
+  </div>
+</div>
