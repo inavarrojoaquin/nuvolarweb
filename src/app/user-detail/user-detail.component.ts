@@ -12,11 +12,11 @@ import { UserService } from '../user.service';
 })
 export class UserDetailComponent implements OnInit {
 
-  user: any;
+  user: User;
   username: string;
   repos: any;
-  followers: any;
-  followings: any;
+  followers: User[];
+  followings: User[];
 
   constructor(
     private route: ActivatedRoute,
@@ -38,7 +38,7 @@ export class UserDetailComponent implements OnInit {
 
   getUser(): void {
     this.userService.getUser(this.username)
-      .subscribe(res => this.user = res);
+      .subscribe(res => this.user = res as User);
   }
   getRepositories(): void {
     this.userService.getRepositories(this.username)
@@ -46,11 +46,11 @@ export class UserDetailComponent implements OnInit {
   }
   getFollowers(): void {
     this.userService.getFollowers(this.username)
-      .subscribe(res => this.followers = res);
+      .subscribe(res => this.followers = res as User[]);
   }
   getFollowings(): void {
     this.userService.getFollowings(this.username)
-      .subscribe(res => this.followings = res);
+      .subscribe(res => this.followings = res as User[]);
   }
 
   goBack(): void {

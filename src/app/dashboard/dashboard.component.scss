@@ -1,7 +1,31 @@
 /* DashboardComponent's private SCSS styles */
-@media (max-width: 600px) {
-  
+
+$nuvolar-font: 'Just Another Hand',
+cursive;
+.nuvolar-font {
+  font-family: $nuvolar-font;
 }
-@media (max-width: 1024px) {
+
+.span-user-name {
+  padding-left: 15px;
+}
+
+.title {
+  padding-bottom: 15px;
+}
+
+.input-search {
+  padding-right: 0px;
+}
+
+.dropdown-toggle::after {
+    display:none
+}
+
+.themes {
+  padding-left: 5px;
   
+  a {
+    cursor: pointer;
+  }
 }

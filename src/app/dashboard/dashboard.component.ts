@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
+import { OverlayContainer } from '@angular/cdk/overlay';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
 
@@ -9,19 +10,37 @@ import { UserService } from '../user.service';
 })
 export class DashboardComponent implements OnInit {
 
-  users: any;
+  users: User[];
   username: string;
+  classes = ['dark-theme', 'app-theme', 'light-theme'];
 
-  constructor(private userService: UserService) { }
+  @HostBinding('class') componentCssClass;
+
+  constructor(
+    private userService: UserService,
+    public overlayContainer: OverlayContainer) { }
 
   ngOnInit() { }
 
   getUsers(username: string): void {
     this.userService.getUsers(username)
-      .subscribe(users => this.users = users.items);
+      .subscribe(users => this.users = users.items as User[]);
   }
 
-  changeTheme(colorName: string): void {
-      // $(document.body).removeClass().toggleClass(`theme-${colorName}`);
+  onSetTheme(theme) {
+    const body = document.body.classList;
+
+    if (body.contains(this.classes[0])) {
+      body.remove(this.classes[0]);
+      body.add(theme);
+    } else if (body.contains(this.classes[1])) {
+      body.remove(this.classes[1]);
+      body.add(theme);
+    } else if (this.classes[2]) {
+      body.remove(this.classes[2]);
+      body.add(theme);
+    } else {
+      body.add(theme);
     }
+  }
 }

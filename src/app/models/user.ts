@@ -2,6 +2,7 @@ export class User {
     public name?: string;
     public login?: string;
     public email?: string;
+    public location?: string;
     public id?: string;
     public public_repos?: number;
     public avatar_url?: string;
@@ -10,4 +11,6 @@ export class User {
     public repos?: string[];
     public followers?: User[];
     public followings?: User[];
+    public following?: number;
+    public html_url?: string;
 }
