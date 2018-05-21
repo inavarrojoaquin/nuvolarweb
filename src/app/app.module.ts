@@ -7,7 +7,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
 
 import { AppComponent } from './app.component';
-import { UsersComponent } from './users/users.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -15,7 +14,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
     UserDetailComponent,
     DashboardComponent
   ],
