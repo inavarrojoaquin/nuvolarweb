@@ -21,12 +21,12 @@ When you are typing on the search bar the app consumes the Github API to get the
 ## App Criteria
 
 	.There must be a search bar to let the user search by username (login name)
-	After the search is completed, the application displays the list of users along with their avatar and their username on the same page. To simplify the exercise, in case there are too many results you can limit them at a certain maximum.
-	When a list item is clicked, the application navigates to a new page that displays a simple list with all the user details.
-	The new page will also display the list of the user's repositories and followers.
-	The application has to be responsive and optimized for mobile
-	Documentation on how the application works and how to set up and build the project must be provided
-	Make sure that the application is production ready.
+	.After the search is completed, the application displays the list of users along with their avatar and their username on the same page. To simplify the exercise, in case there are too many results you can limit them at a certain maximum.
+	.When a list item is clicked, the application navigates to a new page that displays a simple list with all the user details.
+	.The new page will also display the list of the user's repositories and followers.
+	.The application has to be responsive and optimized for mobile
+	.Documentation on how the application works and how to set up and build the project must be provided
+	.Make sure that the application is production ready.
 
 ## Build & development
  
